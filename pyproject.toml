@@ -39,13 +39,16 @@ Documentation = "https://github.com/12211725-star/hospital-waf-mcp/blob/main/REA
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.hatch.version]
+path = "src/waf_mcp/version.py"
+
 [tool.hatch.build.targets.wheel]
-packages = ["waf_mcp"]
+packages = ["src/waf_mcp"]
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "waf_mcp/**/*.py",
-    "waf_mcp/rules/*.json",
+    "src/waf_mcp/**/*.py",
+    "src/waf_mcp/rules/*.json",
     "README.md",
     "LICENSE",
 ]

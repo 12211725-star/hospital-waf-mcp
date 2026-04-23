@@ -1,4 +1,4 @@
-# 医院 WAF MCP — 魔搭 / 远程部署（Streamable HTTP）
+# Hospital WAF MCP — 魔搭/远程部署
 # 构建: docker build -f Dockerfile.mcp -t hospital-waf-mcp .
 # 运行: docker run -p 8000:8000 hospital-waf-mcp
 
@@ -9,20 +9,25 @@ LABEL org.opencontainers.image.version="1.0.0"
 
 WORKDIR /app
 
+# 设置环境变量
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# 复制项目文件
 COPY pyproject.toml .
 COPY README.md .
 COPY LICENSE .
-COPY waf_mcp/ ./waf_mcp/
+COPY src/ ./src/
 
+# 安装Python依赖
 RUN pip install --no-cache-dir -e .
 
-ENV WAF_MCP_TRANSPORT=http
-ENV WAF_MCP_HOST=0.0.0.0
-ENV WAF_MCP_PORT=8000
-
+# 暴露端口
 EXPOSE 8000
 
+# 健康检查
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import httpx; httpx.get('http://localhost:8000/health')" || exit 1
 
+# 启动 MCP 服务
 CMD ["python", "-m", "waf_mcp"]
