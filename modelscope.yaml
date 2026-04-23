@@ -23,8 +23,8 @@ license: MIT
 mcp:
   name: hospital-waf-mcp
   transport:
-    - stdio
     - http
+    - stdio
     - sse
   port: 8000
 

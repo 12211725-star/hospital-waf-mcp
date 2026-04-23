@@ -31,25 +31,7 @@ cd hospital-waf-mcp
 pip install -r requirements-mcp.txt
 ```
 
-### 2. 集成到 MCP 客户端
-
-在 MCP 客户端配置文件中添加：
-
-```json
-{
-  "mcpServers": {
-    "hospital-waf-mcp": {
-      "command": "python",
-      "args": ["-m", "waf_mcp"],
-      "env": {
-        "WAF_MCP_TRANSPORT": "stdio"
-      }
-    }
-  }
-}
-```
-
-### Streamable HTTP 远程部署
+### Streamable HTTP 远程部署（魔搭推荐）
 
 ```bash
 export WAF_MCP_TRANSPORT=http
@@ -66,6 +48,22 @@ python -m waf_mcp
     "hospital-waf-mcp": {
       "type": "http",
       "url": "https://your-service.example.com/mcp"
+    }
+  }
+}
+```
+
+### stdio 本地模式
+
+```json
+{
+  "mcpServers": {
+    "hospital-waf-mcp": {
+      "command": "python",
+      "args": ["-m", "waf_mcp"],
+      "env": {
+        "WAF_MCP_TRANSPORT": "stdio"
+      }
     }
   }
 }
