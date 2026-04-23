@@ -40,11 +40,8 @@ pip install -r requirements-mcp.txt
 {
   "mcpServers": {
     "hospital-waf-mcp": {
-      "command": "python",
-      "args": ["-m", "waf_mcp"],
-      "env": {
-        "WAF_MCP_TRANSPORT": "stdio"
-      }
+      "type": "http",
+      "url": "http://localhost:8000/mcp"
     }
   }
 }
@@ -56,9 +53,24 @@ pip install -r requirements-mcp.txt
 {
   "mcpServers": {
     "hospital-waf-mcp": {
-      "command": "docker",
-      "args": ["run", "--rm", "-i", "-e", "WAF_MCP_TRANSPORT=stdio", "hospital-waf-mcp"],
-      "env": {}
+      "type": "http",
+      "url": "http://localhost:8000/mcp"
+    }
+  }
+}
+```
+
+### stdio 本地模式
+
+```json
+{
+  "mcpServers": {
+    "hospital-waf-mcp": {
+      "command": "python",
+      "args": ["-m", "waf_mcp"],
+      "env": {
+        "WAF_MCP_TRANSPORT": "stdio"
+      }
     }
   }
 }
@@ -72,6 +84,9 @@ export WAF_MCP_HOST=0.0.0.0
 export WAF_MCP_PORT=8000
 python -m waf_mcp
 ```
+
+MCP 端点：`http://<host>:8000/mcp`  
+健康检查：`GET /health`
 
 ## 📖 使用方法
 
@@ -220,7 +235,8 @@ pip install -e .
 # 运行测试
 python scripts/run_functional_tests.py
 
-# 本地运行
+# 本地运行（HTTP模式）
+export WAF_MCP_TRANSPORT=http
 python -m waf_mcp
 ```
 
