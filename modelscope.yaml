@@ -23,11 +23,10 @@ license: MIT
 mcp:
   name: hospital-waf-mcp
   transport:
-    - http
     - stdio
+    - http
     - sse
   port: 8000
-  endpoint: /mcp
 
 # 部署配置
 deploy:
@@ -36,12 +35,8 @@ deploy:
   context: .
   command: python -m waf_mcp
   env:
-    - name: WAF_MCP_TRANSPORT
-      value: "http"
-    - name: WAF_MCP_HOST
-      value: "0.0.0.0"
-    - name: WAF_MCP_PORT
-      value: "8000"
+    - name: WAF_MCP_LOG_LEVEL
+      value: "INFO"
     - name: PYTHONUNBUFFERED
       value: "1"
     - name: PYTHONDONTWRITEBYTECODE
@@ -49,12 +44,6 @@ deploy:
   ports:
     - containerPort: 8000
       hostPort: 8000
-
-# 健康检查
-healthCheck:
-  path: /health
-  intervalSeconds: 30
-  timeoutSeconds: 10
 
 # 工具列表（4个工具）
 tools:
@@ -107,7 +96,7 @@ requirements:
     - starlette>=0.27.0
     - httpx>=0.25.0
 
-# 安装命令（env 中设置 HTTP 模式）
+# 安装命令
 install:
   pypi: hospital-waf-mcp
   command: python -m waf_mcp

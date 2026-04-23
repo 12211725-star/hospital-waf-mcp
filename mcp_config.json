@@ -12,9 +12,7 @@
     "waf_mcp"
   ],
   "env": {
-    "WAF_MCP_TRANSPORT": "http",
-    "WAF_MCP_HOST": "0.0.0.0",
-    "WAF_MCP_PORT": "8000"
+    "WAF_MCP_LOG_LEVEL": "INFO"
   },
   "author": {
     "name": "Hospital Security Team",

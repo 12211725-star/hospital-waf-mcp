@@ -43,9 +43,7 @@ pip install -r requirements-mcp.txt
       "command": "python",
       "args": ["-m", "waf_mcp"],
       "env": {
-        "WAF_MCP_TRANSPORT": "http",
-        "WAF_MCP_HOST": "0.0.0.0",
-        "WAF_MCP_PORT": "8000"
+        "WAF_MCP_LOG_LEVEL": "INFO"
       }
     }
   }
@@ -59,8 +57,10 @@ pip install -r requirements-mcp.txt
   "mcpServers": {
     "hospital-waf-mcp": {
       "command": "docker",
-      "args": ["run", "--rm", "-i", "-p", "8000:8000", "hospital-waf-mcp"],
-      "env": {}
+      "args": ["run", "--rm", "-i", "hospital-waf-mcp"],
+      "env": {
+        "WAF_MCP_LOG_LEVEL": "INFO"
+      }
     }
   }
 }
@@ -163,10 +163,11 @@ Headers: {"Content-Type": "application/json"}
 
 | 变量 | 说明 | 默认值 |
 |------|------|--------|
-| `WAF_MCP_TRANSPORT` | 传输协议 (http/stdio/sse) | `stdio` |
+| `WAF_MCP_TRANSPORT` | 传输协议 (stdio/http/sse) | `stdio` |
 | `WAF_MCP_HOST` | HTTP 监听地址 | `127.0.0.1` |
 | `WAF_MCP_PORT` | HTTP 监听端口 | `8000` |
-| `WAF_RULES_FILE` | 规则文件路径 | `rules/waf_rules.mcp.json` |
+| `WAF_MCP_LOG_LEVEL` | 日志级别 | `INFO` |
+| `WAF_RULES_FILE` | 规则文件路径 | `waf_mcp/rules/waf_rules.mcp.json` |
 
 ## 📋 检测能力
 
@@ -225,8 +226,7 @@ pip install -e .
 # 运行测试
 python scripts/run_functional_tests.py
 
-# 本地运行（HTTP模式）
-export WAF_MCP_TRANSPORT=http
+# 本地运行
 python -m waf_mcp
 ```
 
@@ -234,15 +234,15 @@ python -m waf_mcp
 
 ```
 hospital-waf-mcp/
-├── waf_mcp/                  # MCP 服务代码
+├── waf_mcp/                  # MCP 服务包
 │   ├── __init__.py
 │   ├── __main__.py
 │   ├── config.py
-│   └── server.py
-├── waf_engine.py             # WAF 检测引擎
-├── rules/                    # 规则文件
-│   ├── waf_rules.mcp.json
-│   └── hospital_supplement.json
+│   ├── server.py
+│   ├── version.py
+│   ├── waf_engine.py
+│   └── rules/
+│       └── waf_rules.mcp.json
 ├── scripts/                  # 脚本工具
 ├── modelscope.yaml           # 魔搭配置
 ├── mcp.json                  # MCP 元数据
