@@ -1,5 +1,8 @@
 # ModelScope MCP 配置文件
 # 基于魔搭MCP开发规范 v1.0
+#
+# 上架注意：PyPI 尚无 hospital-waf-mcp，install 使用 python -m（魔搭从仓库构建后可用）。
+# 将来发布 PyPI 后，可将 command 改回 uvx hospital-waf-mcp。
 
 name: hospital-waf-mcp
 version: "1.0.0"
@@ -23,8 +26,8 @@ license: MIT
 mcp:
   name: hospital-waf-mcp
   transport:
-    - http
     - stdio
+    - http
     - sse
   port: 8000
 
@@ -33,14 +36,8 @@ deploy:
   type: docker
   dockerfile: ./Dockerfile.mcp
   context: .
-  command: python -m waf_mcp --transport http --port 8000 --host 0.0.0.0
+  command: python -m waf_mcp --transport sse --port 8000 --host 0.0.0.0
   env:
-    - name: WAF_MCP_TRANSPORT
-      value: "http"
-    - name: WAF_MCP_HOST
-      value: "0.0.0.0"
-    - name: WAF_MCP_PORT
-      value: "8000"
     - name: PYTHONUNBUFFERED
       value: "1"
     - name: PYTHONDONTWRITEBYTECODE
@@ -97,10 +94,10 @@ requirements:
   python: ">=3.10"
   dependencies:
     - fastmcp>=2.0.0
-    - starlette
-    - httpx
+    - starlette>=0.27.0
+    - httpx>=0.25.0
 
-# 安装命令
+# 安装命令（与 mcp_config.json 一致：依赖平台从本仓库安装依赖后可执行 python -m）
 install:
   pypi: hospital-waf-mcp
   command: python -m waf_mcp

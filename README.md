@@ -1,4 +1,4 @@
-# Hospital WAF Management System MCP
+# Hospital WAF Management System MCP Server
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -10,13 +10,14 @@ English | [中文](README.zh-CN.md)
 
 ## ✨ 功能特性
 
-- 🔒 **SQL 注入检测** — 识别常见 SQLi 攻击模式
-- 🎯 **XSS 跨站脚本检测** — 检测反射型/存储型 XSS
-- ⚡ **命令注入检测** — 识别系统命令执行攻击
-- 📁 **路径遍历检测** — 检测目录穿越攻击
+- 🔒 **SQL 注入检测** — 识别常见 SQLi 攻击模式（UNION注入、布尔盲注、时间盲注、报错注入）
+- 🎯 **XSS 跨站脚本检测** — 检测反射型/存储型 XSS（script标签、事件处理器、JS URI）
+- ⚡ **命令注入检测** — 识别 Unix/Windows 系统命令执行攻击
+- 📁 **路径遍历检测** — 检测目录穿越攻击及编码绕过
 - 🏥 **医院专项规则** — 覆盖 HIS/PACS/LIS/RIS 常见漏洞模式
 - 🔄 **热重载规则** — 修改规则后无需重启服务
 - 🧪 **自检测试** — 内置攻击样例验证引擎能力
+- ⚡ **轻量运行** — 纯 Python 正则引擎，无外部依赖
 
 ## 🚀 快速开始
 
@@ -31,29 +32,9 @@ cd hospital-waf-mcp
 pip install -r requirements-mcp.txt
 ```
 
-### Streamable HTTP 远程部署（魔搭推荐）
+### 2. 集成到 MCP 客户端
 
-```bash
-export WAF_MCP_TRANSPORT=http
-export WAF_MCP_HOST=0.0.0.0
-export WAF_MCP_PORT=8000
-python -m waf_mcp
-```
-
-客户端配置：
-
-```json
-{
-  "mcpServers": {
-    "hospital-waf-mcp": {
-      "type": "http",
-      "url": "https://your-service.example.com/mcp"
-    }
-  }
-}
-```
-
-### stdio 本地模式
+在 MCP 客户端配置文件中添加：
 
 ```json
 {
@@ -69,11 +50,27 @@ python -m waf_mcp
 }
 ```
 
-### Docker 部署
+### Docker 方式
+
+```json
+{
+  "mcpServers": {
+    "hospital-waf-mcp": {
+      "command": "docker",
+      "args": ["run", "--rm", "-i", "-e", "WAF_MCP_TRANSPORT=stdio", "hospital-waf-mcp"],
+      "env": {}
+    }
+  }
+}
+```
+
+### Streamable HTTP 远程部署
 
 ```bash
-docker build -f Dockerfile.mcp -t hospital-waf-mcp .
-docker run -p 8000:8000 hospital-waf-mcp
+export WAF_MCP_TRANSPORT=http
+export WAF_MCP_HOST=0.0.0.0
+export WAF_MCP_PORT=8000
+python -m waf_mcp
 ```
 
 ## 📖 使用方法
@@ -114,15 +111,6 @@ AI 会调用 `waf_check_request` 工具，返回：
 当前 WAF 引擎加载了多少规则？
 ```
 
-## 🛠️ 工具列表
-
-| 工具 | 描述 | 参数 |
-|------|------|------|
-| `waf_check_request` | WAF 请求检测 | `url`: 请求URL, `method`: HTTP方法, `headers`: 请求头, `body`: 请求体, `cookies`: Cookie |
-| `waf_rule_stats` | 规则统计 | 无参数 |
-| `waf_reload_rules` | 热重载规则 | 无参数 |
-| `waf_run_self_tests` | 自检测试 | 无参数 |
-
 ## 🎯 提示词指南
 
 ### 安全评估场景
@@ -157,6 +145,15 @@ Body: {"filter": "'; DROP TABLE users; --"}
 Headers: {"Content-Type": "application/json"}
 ```
 
+## 🛠️ 工具列表
+
+| 工具 | 描述 | 参数 |
+|------|------|------|
+| `waf_check_request` | WAF 请求检测 | `url`: 请求URL, `method`: HTTP方法, `headers`: 请求头, `body`: 请求体, `cookies`: Cookie |
+| `waf_rule_stats` | 规则统计 | 无参数 |
+| `waf_reload_rules` | 热重载规则 | 无参数 |
+| `waf_run_self_tests` | 自检测试 | 无参数 |
+
 ## 📖 环境变量
 
 | 变量 | 说明 | 默认值 |
@@ -170,37 +167,48 @@ Headers: {"Content-Type": "application/json"}
 
 ### SQL 注入检测
 
-- 基于 UNION 的注入
-- 布尔盲注
-- 时间盲注
-- 报错注入
-- 堆叠查询
+| 风险类型 | 严重程度 | 检测条件 |
+|---------|---------|---------|
+| UNION 注入 | High | UNION SELECT 等 |
+| 布尔盲注 | High | AND/OR 布尔表达式 |
+| 时间盲注 | High | SLEEP/BENCHMARK 等 |
+| 报错注入 | High | EXTRACTVALUE/UPDATEXML 等 |
+| 堆叠查询 | High | 分号分隔多条 SQL |
 
 ### XSS 检测
 
-- `<script>` 标签
-- 事件处理器 (onclick, onerror 等)
-- JavaScript URI
-- SVG/MathML XSS
+| 风险类型 | 严重程度 | 检测条件 |
+|---------|---------|---------|
+| script 标签 | High | `<script>` 标签注入 |
+| 事件处理器 | High | onclick/onerror 等 |
+| JavaScript URI | Medium | `javascript:` 协议 |
+| SVG 注入 | Medium | `<svg onload>` 等 |
 
 ### 命令注入检测
 
-- Unix 命令注入 (; | & $ `)
-- Windows 命令注入 (& | ^)
-- 常见危险命令 (cat, ls, wget, curl 等)
+| 风险类型 | 严重程度 | 检测条件 |
+|---------|---------|---------|
+| Unix 命令注入 | Critical | ; \| & $ ` 管道连接 |
+| Windows 命令注入 | Critical | & \| ^ 命令连接 |
+| 危险命令 | Critical | cat/ls/wget/curl 等 |
 
 ### 路径遍历检测
 
-- `../` 目录穿越
-- URL 编码绕过
-- 双重编码绕过
+| 风险类型 | 严重程度 | 检测条件 |
+|---------|---------|---------|
+| 目录穿越 | High | `../` 路径穿越 |
+| URL 编码绕过 | High | `%2e%2e/` 等编码 |
+| 双重编码绕过 | High | `%252e%252e/` 等 |
 
 ### 医院场景专项
 
-- HIS 系统常见漏洞模式
-- PACS 影像系统风险
-- LIS 检验系统风险
-- 电子病历系统风险
+| 系统类型 | 关键词 |
+|---------|--------|
+| HIS | 医院信息系统、门诊、住院、挂号 |
+| PACS | 影像、DICOM、放射 |
+| LIS | 检验、实验室、生化 |
+| RIS | 放射信息系统、影像诊断 |
+| EMR | 电子病历、病程记录 |
 
 ## 🔧 开发
 
