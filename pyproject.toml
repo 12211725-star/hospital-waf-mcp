@@ -45,9 +45,7 @@ packages = ["waf_mcp"]
 [tool.hatch.build.targets.sdist]
 include = [
     "waf_mcp/**/*.py",
-    "waf_engine.py",
-    "version.py",
-    "rules/*.json",
+    "waf_mcp/rules/*.json",
     "README.md",
     "LICENSE",
 ]
@@ -58,10 +56,3 @@ dev = [
     "pytest-asyncio>=0.24.0",
     "ruff>=0.12",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["scripts"]
-python_files = "test_*.py"
-python_classes = "Test*"
-python_functions = "test_*"
-addopts = "-v --tb=short"

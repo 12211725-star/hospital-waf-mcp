@@ -1,0 +1,24 @@
+[
+  {
+    "rule_id": "HOSP-0001",
+    "name": "常见HIS管理后台路径探测",
+    "category": "scanner",
+    "severity": "low",
+    "pattern": "(?i)/(?:his-admin|emr-admin|pacs-console|lis-portal)(?:/|\\?|$)",
+    "description": "医院常见后台路径扫描特征（可按实际资产调整）",
+    "action": "alert",
+    "enabled": true,
+    "tags": ["hospital", "scanning"]
+  },
+  {
+    "rule_id": "HOSP-0002",
+    "name": "患者标识参数枚举尝试",
+    "category": "data_exposure",
+    "severity": "medium",
+    "pattern": "(?i)(?:patient[_-]?id|mrn|就诊号|住院号)=[^&\\s]{0,3}$",
+    "description": "过短的患者标识参数，可能为枚举或误配（易误报，可按环境禁用）",
+    "action": "alert",
+    "enabled": false,
+    "tags": ["hospital", "privacy"]
+  }
+]

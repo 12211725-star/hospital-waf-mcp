@@ -45,3 +45,7 @@ reports/*.txt
 
 # Logs
 *.log
+
+# Venv
+.venv/
+venv/

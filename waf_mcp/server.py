@@ -13,17 +13,15 @@ if sys.version_info < (3, 10):
     print("hospital-waf MCP 需要 Python 3.10 及以上。", file=sys.stderr)
     sys.exit(1)
 
-_ROOT = Path(__file__).resolve().parent.parent
-if str(_ROOT) not in sys.path:
-    sys.path.insert(0, str(_ROOT))
+_ROOT = Path(__file__).resolve().parent
 
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 
 from fastmcp import FastMCP
 
-from version import __version__
-from waf_engine import WAFEngine
+from waf_mcp.version import __version__
+from waf_mcp.waf_engine import WAFEngine
 
 _DEFAULT_MCP_RULES = _ROOT / "rules" / "waf_rules.mcp.json"
 
