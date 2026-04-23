@@ -1,0 +1,14 @@
+{
+  "_comment": "本地 Cursor：单一传输 stdio，勿与 http/sse 混用。",
+  "mcpServers": {
+    "hospital-waf": {
+      "command": "python3",
+      "args": ["-m", "waf_mcp"],
+      "cwd": "/path/to/医院WAF管理系统mcp",
+      "env": {
+        "WAF_MCP_TRANSPORT": "stdio",
+        "WAF_RULES_FILE": "/path/to/医院WAF管理系统mcp/rules/waf_rules.mcp.json"
+      }
+    }
+  }
+}

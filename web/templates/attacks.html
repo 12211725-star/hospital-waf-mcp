@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>攻击日志 - 医院WAF管理系统</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif; background: #f5f7fa; }
+        .header { background: white; padding: 20px 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; }
+        .logo h1 { font-size: 20px; color: #1f2937; }
+        .nav { display: flex; gap: 8px; }
+        .nav a { padding: 10px 20px; text-decoration: none; color: #6b7280; border-radius: 8px; }
+        .nav a:hover { background: #f3f4f6; }
+        .nav a.active { background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
+        
+        .filter-bar { background: white; padding: 20px; border-radius: 12px; margin-bottom: 24px; display: flex; gap: 16px; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .filter-bar select, .filter-bar input { padding: 10px 16px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 14px; }
+        .filter-bar button { padding: 10px 24px; background: #dc2626; color: white; border: none; border-radius: 8px; cursor: pointer; }
+        
+        .card { background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #f0f0f0; }
+        th { background: #f8f9fa; font-weight: 600; color: #666; font-size: 13px; }
+        td { font-size: 14px; color: #333; }
+        tr:hover { background: #fafafa; }
+        
+        .severity-badge { padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .severity-high { background: #fee2e2; color: #dc2626; }
+        .severity-medium { background: #fef3c7; color: #d97706; }
+        .severity-low { background: #d1fae5; color: #059669; }
+        
+        .action-badge { padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .action-blocked { background: #fee2e2; color: #dc2626; }
+        .action-alert { background: #fef3c7; color: #d97706; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo"><h1>🛡️ 医院WAF管理系统 v1.0.0</h1></div>
+        <nav class="nav">
+            <a href="/dashboard">仪表盘</a>
+            <a href="/attacks" class="active">攻击日志</a>
+            <a href="/rules">规则管理</a>
+            <a href="/blacklist">黑白名单</a>
+            <a href="/users">用户管理</a>
+            <a href="/audit">审计日志</a>
+            <a href="#" onclick="logout()">退出</a>
+        </nav>
+    </div>
+    
+    <div class="container">
+        <div class="filter-bar">
+            <select id="attackType">
+                <option value="">全部攻击类型</option>
+                <option value="SQL注入">SQL注入</option>
+                <option value="XSS攻击">XSS攻击</option>
+                <option value="命令注入">命令注入</option>
+                <option value="路径遍历">路径遍历</option>
+                <option value="CSRF攻击">CSRF攻击</option>
+            </select>
+            <select id="severity">
+                <option value="">全部危害等级</option>
+                <option value="high">高危</option>
+                <option value="medium">中危</option>
+                <option value="low">低危</option>
+            </select>
+            <input type="text" id="searchIp" placeholder="搜索IP地址">
+            <button onclick="loadAttacks()">筛选</button>
+        </div>
+        
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>攻击类型</th>
+                        <th>源IP</th>
+                        <th>目标URL</th>
+                        <th>危害等级</th>
+                        <th>处理动作</th>
+                    </tr>
+                </thead>
+                <tbody id="attackTable"></tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        async function loadAttacks() {
+            const attackType = document.getElementById('attackType').value;
+            const severity = document.getElementById('severity').value;
+            
+            let url = '/api/attacks?limit=200';
+            if (attackType) url += `&attack_type=${encodeURIComponent(attackType)}`;
+            if (severity) url += `&severity=${severity}`;
+            
+            try {
+                const response = await fetch(url);
+                const result = await response.json();
+                
+                if (result.success) {
+                    renderTable(result.data);
+                }
+            } catch (error) {
+                console.error('加载攻击日志失败:', error);
+            }
+        }
+        
+        function renderTable(attacks) {
+            const tbody = document.getElementById('attackTable');
+            tbody.innerHTML = attacks.map(a => `
+                <tr>
+                    <td>${new Date(a.attack_time).toLocaleString('zh-CN')}</td>
+                    <td>${a.attack_type}</td>
+                    <td><code>${a.source_ip}</code></td>
+                    <td>${a.target_url}</td>
+                    <td><span class="severity-badge severity-${a.severity}">
+                        ${a.severity === 'high' ? '高危' : a.severity === 'medium' ? '中危' : '低危'}
+                    </span></td>
+                    <td><span class="action-badge action-${a.action}">
+                        ${a.action === 'blocked' ? '已拦截' : '告警'}
+                    </span></td>
+                </tr>
+            `).join('');
+        }
+        
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = '/';
+        }
+        
+        loadAttacks();
+    </script>
+</body>
+</html>

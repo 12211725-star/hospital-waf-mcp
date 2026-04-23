@@ -1,0 +1,807 @@
+{
+  "module_id": "hospital-basic",
+  "version": "1.0.0",
+  "rules": [
+    {
+      "rule_id": "HIS-WAF-001",
+      "name": "HIS系统WAF防护规则1",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_1",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262449"
+    },
+    {
+      "rule_id": "HIS-WAF-002",
+      "name": "HIS系统WAF防护规则2",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_2",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262450"
+    },
+    {
+      "rule_id": "HIS-WAF-003",
+      "name": "HIS系统WAF防护规则3",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_3",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262451"
+    },
+    {
+      "rule_id": "HIS-WAF-004",
+      "name": "HIS系统WAF防护规则4",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_4",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262452"
+    },
+    {
+      "rule_id": "HIS-WAF-005",
+      "name": "HIS系统WAF防护规则5",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_5",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262452"
+    },
+    {
+      "rule_id": "HIS-WAF-006",
+      "name": "HIS系统WAF防护规则6",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_6",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262453"
+    },
+    {
+      "rule_id": "HIS-WAF-007",
+      "name": "HIS系统WAF防护规则7",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_7",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262454"
+    },
+    {
+      "rule_id": "HIS-WAF-008",
+      "name": "HIS系统WAF防护规则8",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_8",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262455"
+    },
+    {
+      "rule_id": "HIS-WAF-009",
+      "name": "HIS系统WAF防护规则9",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_9",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262456"
+    },
+    {
+      "rule_id": "HIS-WAF-010",
+      "name": "HIS系统WAF防护规则10",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_10",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262457"
+    },
+    {
+      "rule_id": "HIS-WAF-011",
+      "name": "HIS系统WAF防护规则11",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_11",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262457"
+    },
+    {
+      "rule_id": "HIS-WAF-012",
+      "name": "HIS系统WAF防护规则12",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_12",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262458"
+    },
+    {
+      "rule_id": "HIS-WAF-013",
+      "name": "HIS系统WAF防护规则13",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_13",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262459"
+    },
+    {
+      "rule_id": "HIS-WAF-014",
+      "name": "HIS系统WAF防护规则14",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_14",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262460"
+    },
+    {
+      "rule_id": "HIS-WAF-015",
+      "name": "HIS系统WAF防护规则15",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_15",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262460"
+    },
+    {
+      "rule_id": "HIS-WAF-016",
+      "name": "HIS系统WAF防护规则16",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_16",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262461"
+    },
+    {
+      "rule_id": "HIS-WAF-017",
+      "name": "HIS系统WAF防护规则17",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_17",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262462"
+    },
+    {
+      "rule_id": "HIS-WAF-018",
+      "name": "HIS系统WAF防护规则18",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_18",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262463"
+    },
+    {
+      "rule_id": "HIS-WAF-019",
+      "name": "HIS系统WAF防护规则19",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_19",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262464"
+    },
+    {
+      "rule_id": "HIS-WAF-020",
+      "name": "HIS系统WAF防护规则20",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_20",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262464"
+    },
+    {
+      "rule_id": "HIS-WAF-021",
+      "name": "HIS系统WAF防护规则21",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_21",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262465"
+    },
+    {
+      "rule_id": "HIS-WAF-022",
+      "name": "HIS系统WAF防护规则22",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_22",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262466"
+    },
+    {
+      "rule_id": "HIS-WAF-023",
+      "name": "HIS系统WAF防护规则23",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_23",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262466"
+    },
+    {
+      "rule_id": "HIS-WAF-024",
+      "name": "HIS系统WAF防护规则24",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_24",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262467"
+    },
+    {
+      "rule_id": "HIS-WAF-025",
+      "name": "HIS系统WAF防护规则25",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_25",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262468"
+    },
+    {
+      "rule_id": "MEDICAL-API-001",
+      "name": "医疗API防护规则1",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_1",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262469"
+    },
+    {
+      "rule_id": "MEDICAL-API-002",
+      "name": "医疗API防护规则2",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_2",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262470"
+    },
+    {
+      "rule_id": "MEDICAL-API-003",
+      "name": "医疗API防护规则3",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_3",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262471"
+    },
+    {
+      "rule_id": "MEDICAL-API-004",
+      "name": "医疗API防护规则4",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_4",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262472"
+    },
+    {
+      "rule_id": "MEDICAL-API-005",
+      "name": "医疗API防护规则5",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_5",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262472"
+    },
+    {
+      "rule_id": "MEDICAL-API-006",
+      "name": "医疗API防护规则6",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_6",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262473"
+    },
+    {
+      "rule_id": "MEDICAL-API-007",
+      "name": "医疗API防护规则7",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_7",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262474"
+    },
+    {
+      "rule_id": "MEDICAL-API-008",
+      "name": "医疗API防护规则8",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_8",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262475"
+    },
+    {
+      "rule_id": "MEDICAL-API-009",
+      "name": "医疗API防护规则9",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_9",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262476"
+    },
+    {
+      "rule_id": "MEDICAL-API-010",
+      "name": "医疗API防护规则10",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_10",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262477"
+    },
+    {
+      "rule_id": "MEDICAL-API-011",
+      "name": "医疗API防护规则11",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_11",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262477"
+    },
+    {
+      "rule_id": "MEDICAL-API-012",
+      "name": "医疗API防护规则12",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_12",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262478"
+    },
+    {
+      "rule_id": "MEDICAL-API-013",
+      "name": "医疗API防护规则13",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_13",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262479"
+    },
+    {
+      "rule_id": "MEDICAL-API-014",
+      "name": "医疗API防护规则14",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_14",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262480"
+    },
+    {
+      "rule_id": "MEDICAL-API-015",
+      "name": "医疗API防护规则15",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_15",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262480"
+    },
+    {
+      "rule_id": "MEDICAL-API-016",
+      "name": "医疗API防护规则16",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_16",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262481"
+    },
+    {
+      "rule_id": "MEDICAL-API-017",
+      "name": "医疗API防护规则17",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_17",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262482"
+    },
+    {
+      "rule_id": "MEDICAL-API-018",
+      "name": "医疗API防护规则18",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_18",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262483"
+    },
+    {
+      "rule_id": "MEDICAL-API-019",
+      "name": "医疗API防护规则19",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_19",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262484"
+    },
+    {
+      "rule_id": "MEDICAL-API-020",
+      "name": "医疗API防护规则20",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_20",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262484"
+    },
+    {
+      "rule_id": "MEDICAL-API-021",
+      "name": "医疗API防护规则21",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_21",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262485"
+    },
+    {
+      "rule_id": "MEDICAL-API-022",
+      "name": "医疗API防护规则22",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_22",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262486"
+    },
+    {
+      "rule_id": "MEDICAL-API-023",
+      "name": "医疗API防护规则23",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_23",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262486"
+    },
+    {
+      "rule_id": "MEDICAL-API-024",
+      "name": "医疗API防护规则24",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_24",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262487"
+    },
+    {
+      "rule_id": "MEDICAL-API-025",
+      "name": "医疗API防护规则25",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_25",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262488"
+    }
+  ],
+  "rules_count": 50
+}

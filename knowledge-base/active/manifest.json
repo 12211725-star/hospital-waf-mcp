@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "product": "WAF管理系统",
+  "active_modules": [
+    "hospital-basic"
+  ],
+  "last_update": "2026-04-07T08:10:49.263578"
+}

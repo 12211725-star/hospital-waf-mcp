@@ -1,0 +1,6 @@
+fastapi>=0.104.0
+uvicorn>=0.24.0
+jinja2>=3.1.2
+Pillow>=10.0.0
+python-multipart>=0.0.6
+# MCP (FastMCP): 需要 Python 3.10+，见 requirements-mcp.txt

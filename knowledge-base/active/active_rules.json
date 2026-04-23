@@ -1,0 +1,2315 @@
+{
+  "version": "1.0.0",
+  "product": "WAF管理系统",
+  "merge_time": "2026-04-07T08:10:49.265375",
+  "total_rules": 150,
+  "core_rules": 100,
+  "active_modules": [
+    "hospital-basic"
+  ],
+  "module_contributions": {
+    "hospital-basic": 50
+  },
+  "rules": [
+    {
+      "rule_id": "WAF-SQLI-001-001",
+      "name": "UNION注入防护 - 规则1",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_1_1",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262364"
+    },
+    {
+      "rule_id": "WAF-SQLI-001-002",
+      "name": "UNION注入防护 - 规则2",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_1_2",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262366"
+    },
+    {
+      "rule_id": "WAF-SQLI-001-003",
+      "name": "UNION注入防护 - 规则3",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_1_3",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262367"
+    },
+    {
+      "rule_id": "WAF-SQLI-001-004",
+      "name": "UNION注入防护 - 规则4",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_1_4",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262368"
+    },
+    {
+      "rule_id": "WAF-SQLI-001-005",
+      "name": "UNION注入防护 - 规则5",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_1_5",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262369"
+    },
+    {
+      "rule_id": "WAF-SQLI-001-006",
+      "name": "UNION注入防护 - 规则6",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_1_6",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262370"
+    },
+    {
+      "rule_id": "WAF-SQLI-001-007",
+      "name": "UNION注入防护 - 规则7",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_1_7",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262371"
+    },
+    {
+      "rule_id": "WAF-SQLI-001-008",
+      "name": "UNION注入防护 - 规则8",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_1_8",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262371"
+    },
+    {
+      "rule_id": "WAF-SQLI-002-001",
+      "name": "SELECT注入防护 - 规则1",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_2_1",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262373"
+    },
+    {
+      "rule_id": "WAF-SQLI-002-002",
+      "name": "SELECT注入防护 - 规则2",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_2_2",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262373"
+    },
+    {
+      "rule_id": "WAF-SQLI-002-003",
+      "name": "SELECT注入防护 - 规则3",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_2_3",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262374"
+    },
+    {
+      "rule_id": "WAF-SQLI-002-004",
+      "name": "SELECT注入防护 - 规则4",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_2_4",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262375"
+    },
+    {
+      "rule_id": "WAF-SQLI-002-005",
+      "name": "SELECT注入防护 - 规则5",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_2_5",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262376"
+    },
+    {
+      "rule_id": "WAF-SQLI-002-006",
+      "name": "SELECT注入防护 - 规则6",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_2_6",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262377"
+    },
+    {
+      "rule_id": "WAF-SQLI-002-007",
+      "name": "SELECT注入防护 - 规则7",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_2_7",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262378"
+    },
+    {
+      "rule_id": "WAF-SQLI-002-008",
+      "name": "SELECT注入防护 - 规则8",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_2_8",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262378"
+    },
+    {
+      "rule_id": "WAF-SQLI-003-001",
+      "name": "INSERT注入防护 - 规则1",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_3_1",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262379"
+    },
+    {
+      "rule_id": "WAF-SQLI-003-002",
+      "name": "INSERT注入防护 - 规则2",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_3_2",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262380"
+    },
+    {
+      "rule_id": "WAF-SQLI-003-003",
+      "name": "INSERT注入防护 - 规则3",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_3_3",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262381"
+    },
+    {
+      "rule_id": "WAF-SQLI-003-004",
+      "name": "INSERT注入防护 - 规则4",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_3_4",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262382"
+    },
+    {
+      "rule_id": "WAF-SQLI-003-005",
+      "name": "INSERT注入防护 - 规则5",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_3_5",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262383"
+    },
+    {
+      "rule_id": "WAF-SQLI-003-006",
+      "name": "INSERT注入防护 - 规则6",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_3_6",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262383"
+    },
+    {
+      "rule_id": "WAF-SQLI-003-007",
+      "name": "INSERT注入防护 - 规则7",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_3_7",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262384"
+    },
+    {
+      "rule_id": "WAF-SQLI-003-008",
+      "name": "INSERT注入防护 - 规则8",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_3_8",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262385"
+    },
+    {
+      "rule_id": "WAF-SQLI-004-001",
+      "name": "UPDATE注入防护 - 规则1",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_4_1",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262386"
+    },
+    {
+      "rule_id": "WAF-SQLI-004-002",
+      "name": "UPDATE注入防护 - 规则2",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_4_2",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262386"
+    },
+    {
+      "rule_id": "WAF-SQLI-004-003",
+      "name": "UPDATE注入防护 - 规则3",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_4_3",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262387"
+    },
+    {
+      "rule_id": "WAF-SQLI-004-004",
+      "name": "UPDATE注入防护 - 规则4",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_4_4",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262388"
+    },
+    {
+      "rule_id": "WAF-SQLI-004-005",
+      "name": "UPDATE注入防护 - 规则5",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_4_5",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262389"
+    },
+    {
+      "rule_id": "WAF-SQLI-004-006",
+      "name": "UPDATE注入防护 - 规则6",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_4_6",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262390"
+    },
+    {
+      "rule_id": "WAF-SQLI-004-007",
+      "name": "UPDATE注入防护 - 规则7",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_4_7",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262390"
+    },
+    {
+      "rule_id": "WAF-SQLI-004-008",
+      "name": "UPDATE注入防护 - 规则8",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_4_8",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262391"
+    },
+    {
+      "rule_id": "WAF-SQLI-005-001",
+      "name": "DELETE注入防护 - 规则1",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_5_1",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262392"
+    },
+    {
+      "rule_id": "WAF-SQLI-005-002",
+      "name": "DELETE注入防护 - 规则2",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_5_2",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262393"
+    },
+    {
+      "rule_id": "WAF-SQLI-005-003",
+      "name": "DELETE注入防护 - 规则3",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_5_3",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262394"
+    },
+    {
+      "rule_id": "WAF-SQLI-005-004",
+      "name": "DELETE注入防护 - 规则4",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_5_4",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262394"
+    },
+    {
+      "rule_id": "WAF-SQLI-005-005",
+      "name": "DELETE注入防护 - 规则5",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_5_5",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262395"
+    },
+    {
+      "rule_id": "WAF-SQLI-005-006",
+      "name": "DELETE注入防护 - 规则6",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_5_6",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262396"
+    },
+    {
+      "rule_id": "WAF-SQLI-005-007",
+      "name": "DELETE注入防护 - 规则7",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_5_7",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262397"
+    },
+    {
+      "rule_id": "WAF-SQLI-005-008",
+      "name": "DELETE注入防护 - 规则8",
+      "category": "sql_injection",
+      "severity": "critical",
+      "description": "WAF SQL注入防护规则",
+      "pattern": "waf_sqli_pattern_5_8",
+      "action": "block",
+      "tags": [
+        "waf",
+        "sql_injection",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262397"
+    },
+    {
+      "rule_id": "WAF-XSS-001-001",
+      "name": "反射型XSS防护 - 规则1",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_1_1",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262399"
+    },
+    {
+      "rule_id": "WAF-XSS-001-002",
+      "name": "反射型XSS防护 - 规则2",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_1_2",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262400"
+    },
+    {
+      "rule_id": "WAF-XSS-001-003",
+      "name": "反射型XSS防护 - 规则3",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_1_3",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262401"
+    },
+    {
+      "rule_id": "WAF-XSS-001-004",
+      "name": "反射型XSS防护 - 规则4",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_1_4",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262401"
+    },
+    {
+      "rule_id": "WAF-XSS-001-005",
+      "name": "反射型XSS防护 - 规则5",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_1_5",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262402"
+    },
+    {
+      "rule_id": "WAF-XSS-001-006",
+      "name": "反射型XSS防护 - 规则6",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_1_6",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262403"
+    },
+    {
+      "rule_id": "WAF-XSS-001-007",
+      "name": "反射型XSS防护 - 规则7",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_1_7",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262404"
+    },
+    {
+      "rule_id": "WAF-XSS-001-008",
+      "name": "反射型XSS防护 - 规则8",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_1_8",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262404"
+    },
+    {
+      "rule_id": "WAF-XSS-001-009",
+      "name": "反射型XSS防护 - 规则9",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_1_9",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262405"
+    },
+    {
+      "rule_id": "WAF-XSS-001-010",
+      "name": "反射型XSS防护 - 规则10",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_1_10",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262406"
+    },
+    {
+      "rule_id": "WAF-XSS-002-001",
+      "name": "存储型XSS防护 - 规则1",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_2_1",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262407"
+    },
+    {
+      "rule_id": "WAF-XSS-002-002",
+      "name": "存储型XSS防护 - 规则2",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_2_2",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262408"
+    },
+    {
+      "rule_id": "WAF-XSS-002-003",
+      "name": "存储型XSS防护 - 规则3",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_2_3",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262409"
+    },
+    {
+      "rule_id": "WAF-XSS-002-004",
+      "name": "存储型XSS防护 - 规则4",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_2_4",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262409"
+    },
+    {
+      "rule_id": "WAF-XSS-002-005",
+      "name": "存储型XSS防护 - 规则5",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_2_5",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262410"
+    },
+    {
+      "rule_id": "WAF-XSS-002-006",
+      "name": "存储型XSS防护 - 规则6",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_2_6",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262411"
+    },
+    {
+      "rule_id": "WAF-XSS-002-007",
+      "name": "存储型XSS防护 - 规则7",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_2_7",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262412"
+    },
+    {
+      "rule_id": "WAF-XSS-002-008",
+      "name": "存储型XSS防护 - 规则8",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_2_8",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262412"
+    },
+    {
+      "rule_id": "WAF-XSS-002-009",
+      "name": "存储型XSS防护 - 规则9",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_2_9",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262413"
+    },
+    {
+      "rule_id": "WAF-XSS-002-010",
+      "name": "存储型XSS防护 - 规则10",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_2_10",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262414"
+    },
+    {
+      "rule_id": "WAF-XSS-003-001",
+      "name": "DOM型XSS防护 - 规则1",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_3_1",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262415"
+    },
+    {
+      "rule_id": "WAF-XSS-003-002",
+      "name": "DOM型XSS防护 - 规则2",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_3_2",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262416"
+    },
+    {
+      "rule_id": "WAF-XSS-003-003",
+      "name": "DOM型XSS防护 - 规则3",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_3_3",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262416"
+    },
+    {
+      "rule_id": "WAF-XSS-003-004",
+      "name": "DOM型XSS防护 - 规则4",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_3_4",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262417"
+    },
+    {
+      "rule_id": "WAF-XSS-003-005",
+      "name": "DOM型XSS防护 - 规则5",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_3_5",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262418"
+    },
+    {
+      "rule_id": "WAF-XSS-003-006",
+      "name": "DOM型XSS防护 - 规则6",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_3_6",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262419"
+    },
+    {
+      "rule_id": "WAF-XSS-003-007",
+      "name": "DOM型XSS防护 - 规则7",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_3_7",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262420"
+    },
+    {
+      "rule_id": "WAF-XSS-003-008",
+      "name": "DOM型XSS防护 - 规则8",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_3_8",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262420"
+    },
+    {
+      "rule_id": "WAF-XSS-003-009",
+      "name": "DOM型XSS防护 - 规则9",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_3_9",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262421"
+    },
+    {
+      "rule_id": "WAF-XSS-003-010",
+      "name": "DOM型XSS防护 - 规则10",
+      "category": "xss",
+      "severity": "high",
+      "description": "WAF XSS防护规则",
+      "pattern": "waf_xss_pattern_3_10",
+      "action": "block",
+      "tags": [
+        "waf",
+        "xss",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262422"
+    },
+    {
+      "rule_id": "WAF-CMDI-001-001",
+      "name": "命令注入防护 - 规则1",
+      "category": "command_injection",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_1_1",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262424"
+    },
+    {
+      "rule_id": "WAF-CMDI-001-002",
+      "name": "命令注入防护 - 规则2",
+      "category": "command_injection",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_1_2",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262424"
+    },
+    {
+      "rule_id": "WAF-CMDI-001-003",
+      "name": "命令注入防护 - 规则3",
+      "category": "command_injection",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_1_3",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262425"
+    },
+    {
+      "rule_id": "WAF-CMDI-001-004",
+      "name": "命令注入防护 - 规则4",
+      "category": "command_injection",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_1_4",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262426"
+    },
+    {
+      "rule_id": "WAF-CMDI-001-005",
+      "name": "命令注入防护 - 规则5",
+      "category": "command_injection",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_1_5",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262427"
+    },
+    {
+      "rule_id": "WAF-CMDI-001-006",
+      "name": "命令注入防护 - 规则6",
+      "category": "command_injection",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_1_6",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262428"
+    },
+    {
+      "rule_id": "WAF-CMDI-001-007",
+      "name": "命令注入防护 - 规则7",
+      "category": "command_injection",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_1_7",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262429"
+    },
+    {
+      "rule_id": "WAF-CMDI-001-008",
+      "name": "命令注入防护 - 规则8",
+      "category": "command_injection",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_1_8",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262430"
+    },
+    {
+      "rule_id": "WAF-CMDI-001-009",
+      "name": "命令注入防护 - 规则9",
+      "category": "command_injection",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_1_9",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262430"
+    },
+    {
+      "rule_id": "WAF-CMDI-001-010",
+      "name": "命令注入防护 - 规则10",
+      "category": "command_injection",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_1_10",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262431"
+    },
+    {
+      "rule_id": "WAF-LFI-001-001",
+      "name": "本地文件包含防护 - 规则1",
+      "category": "local_file_inclusion",
+      "severity": "high",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_2_1",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262432"
+    },
+    {
+      "rule_id": "WAF-LFI-001-002",
+      "name": "本地文件包含防护 - 规则2",
+      "category": "local_file_inclusion",
+      "severity": "high",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_2_2",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262433"
+    },
+    {
+      "rule_id": "WAF-LFI-001-003",
+      "name": "本地文件包含防护 - 规则3",
+      "category": "local_file_inclusion",
+      "severity": "high",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_2_3",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262434"
+    },
+    {
+      "rule_id": "WAF-LFI-001-004",
+      "name": "本地文件包含防护 - 规则4",
+      "category": "local_file_inclusion",
+      "severity": "high",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_2_4",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262434"
+    },
+    {
+      "rule_id": "WAF-LFI-001-005",
+      "name": "本地文件包含防护 - 规则5",
+      "category": "local_file_inclusion",
+      "severity": "high",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_2_5",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262435"
+    },
+    {
+      "rule_id": "WAF-LFI-001-006",
+      "name": "本地文件包含防护 - 规则6",
+      "category": "local_file_inclusion",
+      "severity": "high",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_2_6",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262436"
+    },
+    {
+      "rule_id": "WAF-LFI-001-007",
+      "name": "本地文件包含防护 - 规则7",
+      "category": "local_file_inclusion",
+      "severity": "high",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_2_7",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262437"
+    },
+    {
+      "rule_id": "WAF-LFI-001-008",
+      "name": "本地文件包含防护 - 规则8",
+      "category": "local_file_inclusion",
+      "severity": "high",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_2_8",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262438"
+    },
+    {
+      "rule_id": "WAF-LFI-001-009",
+      "name": "本地文件包含防护 - 规则9",
+      "category": "local_file_inclusion",
+      "severity": "high",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_2_9",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262438"
+    },
+    {
+      "rule_id": "WAF-LFI-001-010",
+      "name": "本地文件包含防护 - 规则10",
+      "category": "local_file_inclusion",
+      "severity": "high",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_2_10",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262439"
+    },
+    {
+      "rule_id": "WAF-RFI-001-001",
+      "name": "远程文件包含防护 - 规则1",
+      "category": "remote_file_inclusion",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_3_1",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262440"
+    },
+    {
+      "rule_id": "WAF-RFI-001-002",
+      "name": "远程文件包含防护 - 规则2",
+      "category": "remote_file_inclusion",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_3_2",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262441"
+    },
+    {
+      "rule_id": "WAF-RFI-001-003",
+      "name": "远程文件包含防护 - 规则3",
+      "category": "remote_file_inclusion",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_3_3",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262441"
+    },
+    {
+      "rule_id": "WAF-RFI-001-004",
+      "name": "远程文件包含防护 - 规则4",
+      "category": "remote_file_inclusion",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_3_4",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262442"
+    },
+    {
+      "rule_id": "WAF-RFI-001-005",
+      "name": "远程文件包含防护 - 规则5",
+      "category": "remote_file_inclusion",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_3_5",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262443"
+    },
+    {
+      "rule_id": "WAF-RFI-001-006",
+      "name": "远程文件包含防护 - 规则6",
+      "category": "remote_file_inclusion",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_3_6",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262444"
+    },
+    {
+      "rule_id": "WAF-RFI-001-007",
+      "name": "远程文件包含防护 - 规则7",
+      "category": "remote_file_inclusion",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_3_7",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262445"
+    },
+    {
+      "rule_id": "WAF-RFI-001-008",
+      "name": "远程文件包含防护 - 规则8",
+      "category": "remote_file_inclusion",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_3_8",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262445"
+    },
+    {
+      "rule_id": "WAF-RFI-001-009",
+      "name": "远程文件包含防护 - 规则9",
+      "category": "remote_file_inclusion",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_3_9",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262446"
+    },
+    {
+      "rule_id": "WAF-RFI-001-010",
+      "name": "远程文件包含防护 - 规则10",
+      "category": "remote_file_inclusion",
+      "severity": "critical",
+      "description": "WAF攻击防护规则",
+      "pattern": "waf_other_pattern_3_10",
+      "action": "block",
+      "tags": [
+        "waf",
+        "attack",
+        "core"
+      ],
+      "created_at": "2026-04-07T08:10:49.262447"
+    },
+    {
+      "rule_id": "HIS-WAF-001",
+      "name": "HIS系统WAF防护规则1",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_1",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262449"
+    },
+    {
+      "rule_id": "HIS-WAF-002",
+      "name": "HIS系统WAF防护规则2",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_2",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262450"
+    },
+    {
+      "rule_id": "HIS-WAF-003",
+      "name": "HIS系统WAF防护规则3",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_3",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262451"
+    },
+    {
+      "rule_id": "HIS-WAF-004",
+      "name": "HIS系统WAF防护规则4",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_4",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262452"
+    },
+    {
+      "rule_id": "HIS-WAF-005",
+      "name": "HIS系统WAF防护规则5",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_5",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262452"
+    },
+    {
+      "rule_id": "HIS-WAF-006",
+      "name": "HIS系统WAF防护规则6",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_6",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262453"
+    },
+    {
+      "rule_id": "HIS-WAF-007",
+      "name": "HIS系统WAF防护规则7",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_7",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262454"
+    },
+    {
+      "rule_id": "HIS-WAF-008",
+      "name": "HIS系统WAF防护规则8",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_8",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262455"
+    },
+    {
+      "rule_id": "HIS-WAF-009",
+      "name": "HIS系统WAF防护规则9",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_9",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262456"
+    },
+    {
+      "rule_id": "HIS-WAF-010",
+      "name": "HIS系统WAF防护规则10",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_10",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262457"
+    },
+    {
+      "rule_id": "HIS-WAF-011",
+      "name": "HIS系统WAF防护规则11",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_11",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262457"
+    },
+    {
+      "rule_id": "HIS-WAF-012",
+      "name": "HIS系统WAF防护规则12",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_12",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262458"
+    },
+    {
+      "rule_id": "HIS-WAF-013",
+      "name": "HIS系统WAF防护规则13",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_13",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262459"
+    },
+    {
+      "rule_id": "HIS-WAF-014",
+      "name": "HIS系统WAF防护规则14",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_14",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262460"
+    },
+    {
+      "rule_id": "HIS-WAF-015",
+      "name": "HIS系统WAF防护规则15",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_15",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262460"
+    },
+    {
+      "rule_id": "HIS-WAF-016",
+      "name": "HIS系统WAF防护规则16",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_16",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262461"
+    },
+    {
+      "rule_id": "HIS-WAF-017",
+      "name": "HIS系统WAF防护规则17",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_17",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262462"
+    },
+    {
+      "rule_id": "HIS-WAF-018",
+      "name": "HIS系统WAF防护规则18",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_18",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262463"
+    },
+    {
+      "rule_id": "HIS-WAF-019",
+      "name": "HIS系统WAF防护规则19",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_19",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262464"
+    },
+    {
+      "rule_id": "HIS-WAF-020",
+      "name": "HIS系统WAF防护规则20",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_20",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262464"
+    },
+    {
+      "rule_id": "HIS-WAF-021",
+      "name": "HIS系统WAF防护规则21",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_21",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262465"
+    },
+    {
+      "rule_id": "HIS-WAF-022",
+      "name": "HIS系统WAF防护规则22",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_22",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262466"
+    },
+    {
+      "rule_id": "HIS-WAF-023",
+      "name": "HIS系统WAF防护规则23",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_23",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262466"
+    },
+    {
+      "rule_id": "HIS-WAF-024",
+      "name": "HIS系统WAF防护规则24",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_24",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262467"
+    },
+    {
+      "rule_id": "HIS-WAF-025",
+      "name": "HIS系统WAF防护规则25",
+      "category": "his_protection",
+      "severity": "high",
+      "description": "HIS系统Web应用防火墙防护规则",
+      "pattern": "his_waf_pattern_25",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "his",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262468"
+    },
+    {
+      "rule_id": "MEDICAL-API-001",
+      "name": "医疗API防护规则1",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_1",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262469"
+    },
+    {
+      "rule_id": "MEDICAL-API-002",
+      "name": "医疗API防护规则2",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_2",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262470"
+    },
+    {
+      "rule_id": "MEDICAL-API-003",
+      "name": "医疗API防护规则3",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_3",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262471"
+    },
+    {
+      "rule_id": "MEDICAL-API-004",
+      "name": "医疗API防护规则4",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_4",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262472"
+    },
+    {
+      "rule_id": "MEDICAL-API-005",
+      "name": "医疗API防护规则5",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_5",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262472"
+    },
+    {
+      "rule_id": "MEDICAL-API-006",
+      "name": "医疗API防护规则6",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_6",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262473"
+    },
+    {
+      "rule_id": "MEDICAL-API-007",
+      "name": "医疗API防护规则7",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_7",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262474"
+    },
+    {
+      "rule_id": "MEDICAL-API-008",
+      "name": "医疗API防护规则8",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_8",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262475"
+    },
+    {
+      "rule_id": "MEDICAL-API-009",
+      "name": "医疗API防护规则9",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_9",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262476"
+    },
+    {
+      "rule_id": "MEDICAL-API-010",
+      "name": "医疗API防护规则10",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_10",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262477"
+    },
+    {
+      "rule_id": "MEDICAL-API-011",
+      "name": "医疗API防护规则11",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_11",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262477"
+    },
+    {
+      "rule_id": "MEDICAL-API-012",
+      "name": "医疗API防护规则12",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_12",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262478"
+    },
+    {
+      "rule_id": "MEDICAL-API-013",
+      "name": "医疗API防护规则13",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_13",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262479"
+    },
+    {
+      "rule_id": "MEDICAL-API-014",
+      "name": "医疗API防护规则14",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_14",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262480"
+    },
+    {
+      "rule_id": "MEDICAL-API-015",
+      "name": "医疗API防护规则15",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_15",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262480"
+    },
+    {
+      "rule_id": "MEDICAL-API-016",
+      "name": "医疗API防护规则16",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_16",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262481"
+    },
+    {
+      "rule_id": "MEDICAL-API-017",
+      "name": "医疗API防护规则17",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_17",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262482"
+    },
+    {
+      "rule_id": "MEDICAL-API-018",
+      "name": "医疗API防护规则18",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_18",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262483"
+    },
+    {
+      "rule_id": "MEDICAL-API-019",
+      "name": "医疗API防护规则19",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_19",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262484"
+    },
+    {
+      "rule_id": "MEDICAL-API-020",
+      "name": "医疗API防护规则20",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_20",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262484"
+    },
+    {
+      "rule_id": "MEDICAL-API-021",
+      "name": "医疗API防护规则21",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_21",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262485"
+    },
+    {
+      "rule_id": "MEDICAL-API-022",
+      "name": "医疗API防护规则22",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_22",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262486"
+    },
+    {
+      "rule_id": "MEDICAL-API-023",
+      "name": "医疗API防护规则23",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_23",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262486"
+    },
+    {
+      "rule_id": "MEDICAL-API-024",
+      "name": "医疗API防护规则24",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_24",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262487"
+    },
+    {
+      "rule_id": "MEDICAL-API-025",
+      "name": "医疗API防护规则25",
+      "category": "medical_api_protection",
+      "severity": "high",
+      "description": "医疗API接口防护规则",
+      "pattern": "medical_api_pattern_25",
+      "action": "block",
+      "tags": [
+        "hospital",
+        "api",
+        "waf",
+        "basic"
+      ],
+      "created_at": "2026-04-07T08:10:49.262488"
+    }
+  ]
+}

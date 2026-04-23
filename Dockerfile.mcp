@@ -1,0 +1,26 @@
+# 医院 WAF MCP — 魔搭 / 远程部署（单一传输：Streamable HTTP）
+# 构建: docker build -f Dockerfile.mcp -t hospital-waf-mcp .
+# 运行: docker run -p 8000:8000 -e WAF_RULES_FILE=/app/rules/waf_rules.mcp.json hospital-waf-mcp
+
+FROM python:3.11-slim
+
+LABEL org.opencontainers.image.title="医院WAF-MCP"
+LABEL org.opencontainers.image.version="1.0.0"
+
+WORKDIR /app
+
+COPY requirements-mcp.txt .
+RUN pip install --no-cache-dir -r requirements-mcp.txt
+
+COPY version.py .
+COPY waf_engine.py .
+COPY rules/ ./rules/
+COPY waf_mcp/ ./waf_mcp/
+
+ENV WAF_MCP_TRANSPORT=http
+ENV WAF_MCP_HOST=0.0.0.0
+ENV WAF_MCP_PORT=8000
+
+EXPOSE 8000
+
+CMD ["python", "-m", "waf_mcp"]

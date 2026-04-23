@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime data (sensitive / generated)
+data/attack_logs.json
+data/login_logs.json
+data/audit_logs.json
+data/users.json
+data/ip_blacklist.json
+data/ip_whitelist.json
+data/waf_rules.json
+
+# Reports (runtime generated)
+reports/*.json
+reports/*.txt
+
+# Keep data directory structure
+!data/.gitkeep
+
+# Backup files
+*.bak
+*.orig
+
+# Logs
+*.log

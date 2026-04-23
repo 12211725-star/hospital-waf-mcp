@@ -1,0 +1,9 @@
+{
+  "_comment": "仅当客户端仍要求 SSE 时使用；新集成请优先 Streamable HTTP（见 modelscope-streamable-http.json）。",
+  "mcpServers": {
+    "hospital-waf": {
+      "type": "sse",
+      "url": "https://your-service.example.com/sse"
+    }
+  }
+}

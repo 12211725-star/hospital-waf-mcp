@@ -1,0 +1,27 @@
+{
+  "module_id": "hospital-basic",
+  "module_name": "医院基础安全模块",
+  "version": "1.0.0",
+  "author": "OXY Security",
+  "create_date": "2026-04-07",
+  "description": "医院基础安全检测规则，包含HIS、LIS、PACS等系统审计规则",
+  "category": "industry",
+  "tags": [
+    "医院",
+    "医疗",
+    "HIS",
+    "LIS",
+    "PACS"
+  ],
+  "compatible_products": [
+    "hospital-log-audit",
+    "hospital-dba-audit",
+    "hospital-waf-manager",
+    "hospital-vuln-scanner",
+    "hospital-asset-discovery"
+  ],
+  "rules_count": 50,
+  "dependencies": [],
+  "conflicts": [],
+  "builtin": true
+}

@@ -1,0 +1,10 @@
+{
+  "type": "core",
+  "name": "WAF管理系统 核心知识库",
+  "description": "WAF管理系统核心知识库",
+  "version": "1.0.0",
+  "editable": false,
+  "deletable": false,
+  "create_time": "2026-04-07T08:10:49.263010",
+  "product_type": "hospital-waf-manager"
+}

@@ -1,0 +1,9 @@
+{
+  "_comment": "魔搭 MCP 实验场 / 支持 Streamable HTTP 的客户端：每个服务仅配置一种传输。将 baseUrl 替换为公网可达地址。",
+  "mcpServers": {
+    "hospital-waf": {
+      "type": "http",
+      "url": "https://your-service.example.com/mcp"
+    }
+  }
+}

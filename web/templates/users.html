@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理 - 医院WAF管理系统</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif; background: #f5f7fa; }
+        .header { background: white; padding: 20px 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; }
+        .logo h1 { font-size: 20px; color: #1f2937; }
+        .nav { display: flex; gap: 8px; }
+        .nav a { padding: 10px 20px; text-decoration: none; color: #6b7280; border-radius: 8px; }
+        .nav a:hover { background: #f3f4f6; }
+        .nav a.active { background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
+        
+        .toolbar { background: white; padding: 20px; border-radius: 12px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .toolbar h2 { font-size: 18px; color: #1f2937; }
+        .toolbar button { padding: 10px 24px; background: #dc2626; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        
+        .card { background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #f0f0f0; }
+        th { background: #f8f9fa; font-weight: 600; color: #666; font-size: 13px; }
+        td { font-size: 14px; color: #333; }
+        
+        .role-badge { padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .role-admin { background: #fee2e2; color: #dc2626; }
+        .role-security { background: #dbeafe; color: #1e40af; }
+        .role-auditor { background: #d1fae5; color: #059669; }
+        
+        .btn-delete { padding: 6px 12px; background: #fee2e2; color: #dc2626; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; }
+        
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; }
+        .modal.show { display: flex; }
+        .modal-content { background: white; padding: 32px; border-radius: 16px; width: 400px; }
+        .modal-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; }
+        .modal-field { margin-bottom: 16px; }
+        .modal-field label { display: block; margin-bottom: 6px; font-size: 14px; color: #333; }
+        .modal-field input, .modal-field select { width: 100%; padding: 10px 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 14px; }
+        .modal-actions { display: flex; gap: 12px; margin-top: 24px; }
+        .modal-actions button { flex: 1; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        .modal-actions .cancel { background: #f3f4f6; color: #6b7280; }
+        .modal-actions .confirm { background: #dc2626; color: white; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo"><h1>🛡️ 医院WAF管理系统 v1.0.0</h1></div>
+        <nav class="nav">
+            <a href="/dashboard">仪表盘</a>
+            <a href="/attacks">攻击日志</a>
+            <a href="/rules">规则管理</a>
+            <a href="/blacklist">黑白名单</a>
+            <a href="/users" class="active">用户管理</a>
+            <a href="/audit">审计日志</a>
+            <a href="#" onclick="logout()">退出</a>
+        </nav>
+    </div>
+    
+    <div class="container">
+        <div class="toolbar">
+            <h2>用户列表</h2>
+            <button onclick="showAddUserModal()">添加用户</button>
+        </div>
+        
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>用户名</th>
+                        <th>姓名</th>
+                        <th>角色</th>
+                        <th>创建时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTable"></tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="modal" id="addUserModal">
+        <div class="modal-content">
+            <div class="modal-title">添加用户</div>
+            <div class="modal-field">
+                <label>用户名</label>
+                <input type="text" id="newUsername">
+            </div>
+            <div class="modal-field">
+                <label>姓名</label>
+                <input type="text" id="newRealName">
+            </div>
+            <div class="modal-field">
+                <label>密码</label>
+                <input type="password" id="newPassword">
+            </div>
+            <div class="modal-field">
+                <label>角色</label>
+                <select id="newRole">
+                    <option value="admin">系统管理员</option>
+                    <option value="security">安全管理员</option>
+                    <option value="auditor">审计员</option>
+                </select>
+            </div>
+            <div class="modal-actions">
+                <button class="cancel" onclick="hideAddUserModal()">取消</button>
+                <button class="confirm" onclick="createUser()">创建</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        async function loadUsers() {
+            try {
+                const response = await fetch('/api/users');
+                const result = await response.json();
+                
+                if (result.success) {
+                    const tbody = document.getElementById('usersTable');
+                    tbody.innerHTML = result.data.map(u => `
+                        <tr>
+                            <td>${u.username}</td>
+                            <td>${u.real_name}</td>
+                            <td><span class="role-badge role-${u.role}">
+                                ${u.role === 'admin' ? '系统管理员' : u.role === 'security' ? '安全管理员' : '审计员'}
+                            </span></td>
+                            <td>${new Date(u.created_at).toLocaleString('zh-CN')}</td>
+                            <td>${u.must_change_password ? '待改密' : '正常'}</td>
+                            <td>
+                                ${u.username !== 'admin' ? `<button class="btn-delete" onclick="deleteUser('${u.username}')">删除</button>` : '-'}
+                            </td>
+                        </tr>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('加载用户列表失败:', error);
+            }
+        }
+        
+        function showAddUserModal() {
+            document.getElementById('addUserModal').classList.add('show');
+        }
+        
+        function hideAddUserModal() {
+            document.getElementById('addUserModal').classList.remove('show');
+        }
+        
+        async function createUser() {
+            const username = document.getElementById('newUsername').value.trim();
+            const real_name = document.getElementById('newRealName').value.trim();
+            const password = document.getElementById('newPassword').value;
+            const role = document.getElementById('newRole').value;
+            
+            if (!username || !real_name || !password) {
+                return alert('请填写完整信息');
+            }
+            
+            try {
+                const response = await fetch('/api/users/create', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({username, password, role, real_name})
+                });
+                const result = await response.json();
+                
+                if (result.success) {
+                    hideAddUserModal();
+                    loadUsers();
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error('创建用户失败:', error);
+            }
+        }
+        
+        async function deleteUser(username) {
+            if (!confirm(`确定要删除用户 ${username} 吗？`)) return;
+            
+            try {
+                const response = await fetch(`/api/users/${username}`, {method: 'DELETE'});
+                const result = await response.json();
+                
+                if (result.success) {
+                    loadUsers();
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error('删除用户失败:', error);
+            }
+        }
+        
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = '/';
+        }
+        
+        loadUsers();
+    </script>
+</body>
+</html>
