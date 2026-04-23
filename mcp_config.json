@@ -5,8 +5,17 @@
   "displayNameEn": "Hospital WAF Management System MCP",
   "description": "为AI助手提供医院Web应用防火墙检测能力的MCP服务器，支持SQL注入、XSS、命令注入、路径遍历检测，内置医院场景专项规则",
   "descriptionEn": "MCP server providing WAF detection capabilities for hospital systems, supporting SQLi, XSS, command injection, path traversal detection with hospital-specific rules",
-  "serviceType": "http",
-  "url": "/mcp",
+  "serviceType": "stdio",
+  "command": "python",
+  "args": [
+    "-m",
+    "waf_mcp"
+  ],
+  "env": {
+    "WAF_MCP_TRANSPORT": "http",
+    "WAF_MCP_HOST": "0.0.0.0",
+    "WAF_MCP_PORT": "8000"
+  },
   "author": {
     "name": "Hospital Security Team",
     "email": "security@example.com",

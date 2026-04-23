@@ -40,8 +40,13 @@ pip install -r requirements-mcp.txt
 {
   "mcpServers": {
     "hospital-waf-mcp": {
-      "type": "http",
-      "url": "http://localhost:8000/mcp"
+      "command": "python",
+      "args": ["-m", "waf_mcp"],
+      "env": {
+        "WAF_MCP_TRANSPORT": "http",
+        "WAF_MCP_HOST": "0.0.0.0",
+        "WAF_MCP_PORT": "8000"
+      }
     }
   }
 }
@@ -53,24 +58,9 @@ pip install -r requirements-mcp.txt
 {
   "mcpServers": {
     "hospital-waf-mcp": {
-      "type": "http",
-      "url": "http://localhost:8000/mcp"
-    }
-  }
-}
-```
-
-### stdio 本地模式
-
-```json
-{
-  "mcpServers": {
-    "hospital-waf-mcp": {
-      "command": "python",
-      "args": ["-m", "waf_mcp"],
-      "env": {
-        "WAF_MCP_TRANSPORT": "stdio"
-      }
+      "command": "docker",
+      "args": ["run", "--rm", "-i", "-p", "8000:8000", "hospital-waf-mcp"],
+      "env": {}
     }
   }
 }
@@ -85,7 +75,7 @@ export WAF_MCP_PORT=8000
 python -m waf_mcp
 ```
 
-MCP 端点：`http://<host>:8000/mcp`  
+MCP 端点：`http://<host>:8000/mcp`
 健康检查：`GET /health`
 
 ## 📖 使用方法
@@ -173,7 +163,7 @@ Headers: {"Content-Type": "application/json"}
 
 | 变量 | 说明 | 默认值 |
 |------|------|--------|
-| `WAF_MCP_TRANSPORT` | 传输协议 (stdio/http/sse) | `stdio` |
+| `WAF_MCP_TRANSPORT` | 传输协议 (http/stdio/sse) | `stdio` |
 | `WAF_MCP_HOST` | HTTP 监听地址 | `127.0.0.1` |
 | `WAF_MCP_PORT` | HTTP 监听端口 | `8000` |
 | `WAF_RULES_FILE` | 规则文件路径 | `rules/waf_rules.mcp.json` |

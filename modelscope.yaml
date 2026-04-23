@@ -1,6 +1,5 @@
 # ModelScope MCP 配置文件
 # 基于魔搭MCP开发规范 v1.0
-# 传输协议：Streamable HTTP（魔搭托管推荐）
 
 name: hospital-waf-mcp
 version: "1.0.0"
@@ -20,7 +19,7 @@ descriptionEn: |
 author: Hospital Security Team
 license: MIT
 
-# MCP 服务配置（Streamable HTTP）
+# MCP 服务配置
 mcp:
   name: hospital-waf-mcp
   transport:
@@ -108,7 +107,7 @@ requirements:
     - starlette>=0.27.0
     - httpx>=0.25.0
 
-# 安装命令
+# 安装命令（env 中设置 HTTP 模式）
 install:
   pypi: hospital-waf-mcp
   command: python -m waf_mcp
