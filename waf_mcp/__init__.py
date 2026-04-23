@@ -3,5 +3,6 @@
 from version import __version__
 
 from waf_mcp.server import mcp
+from waf_mcp.__main__ import main
 
-__all__ = ["mcp", "__version__"]
+__all__ = ["mcp", "main", "__version__"]

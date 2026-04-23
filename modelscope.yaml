@@ -1,0 +1,135 @@
+# ModelScope MCP 配置文件
+# 基于魔搭MCP开发规范 v1.0
+
+name: hospital-waf-mcp
+version: "1.0.0"
+displayName: 医院WAF管理系统MCP
+displayNameEn: Hospital WAF Management System MCP
+description: |
+  为AI助手提供医院Web应用防火墙检测能力的MCP服务器。
+  支持SQL注入、XSS跨站脚本、命令注入、路径遍历等攻击检测，
+  内置医院场景专项规则，覆盖HIS、PACS、LIS、RIS等医疗系统常见漏洞模式。
+  同时提供规则统计、热重载、自检等运维工具。
+descriptionEn: |
+  MCP server providing Web Application Firewall detection capabilities for hospital systems.
+  Supports SQL injection, XSS, command injection, path traversal detection,
+  with hospital-specific rules covering common vulnerability patterns in HIS, PACS, LIS, RIS.
+  Also provides rule statistics, hot-reload, and self-test tools.
+
+author: Hospital Security Team
+license: MIT
+
+# MCP 服务配置
+mcp:
+  name: hospital-waf-mcp
+  transport:
+    - stdio
+    - http
+    - sse
+  port: 8000
+
+# 部署配置
+deploy:
+  type: docker
+  dockerfile: ./Dockerfile.mcp
+  context: .
+  command: python -m waf_mcp --transport http --port 8000 --host 0.0.0.0
+  env:
+    - name: WAF_MCP_TRANSPORT
+      value: "http"
+    - name: WAF_MCP_HOST
+      value: "0.0.0.0"
+    - name: WAF_MCP_PORT
+      value: "8000"
+    - name: PYTHONUNBUFFERED
+      value: "1"
+    - name: PYTHONDONTWRITEBYTECODE
+      value: "1"
+  ports:
+    - containerPort: 8000
+      hostPort: 8000
+
+# 工具列表（4个工具）
+tools:
+  - name: waf_check_request
+    displayName: WAF请求检测
+    description: 对HTTP请求进行WAF规则检测，返回命中的告警列表（SQLi/XSS/命令注入/路径遍历/医院专项）
+
+  - name: waf_rule_stats
+    displayName: 规则统计
+    description: 获取已加载规则的统计信息，含规则数量、编译状态、分类计数
+
+  - name: waf_reload_rules
+    displayName: 热重载规则
+    description: 重新从磁盘加载WAF规则文件并编译，修改规则后无需重启服务
+
+  - name: waf_run_self_tests
+    displayName: 自检测试
+    description: 运行内置SQLi/XSS/命令注入/路径遍历攻击样例，验证引擎检出能力
+
+# 分类
+categories:
+  - security
+  - healthcare
+  - waf
+
+# 标签
+tags:
+  - mcp
+  - waf
+  - security
+  - hospital
+  - healthcare
+  - sqli
+  - xss
+  - firewall
+  - his
+  - pacs
+  - 安全
+  - 防火墙
+  - 医院
+  - 医疗
+  - 医疗信息安全
+  - 等保
+
+# 运行要求
+requirements:
+  python: ">=3.10"
+  dependencies:
+    - fastmcp>=2.0.0
+    - starlette
+    - httpx
+
+# 安装命令
+install:
+  pypi: hospital-waf-mcp
+  command: python -m waf_mcp
+  commandWindows: python -m waf_mcp
+
+# 使用示例
+examples:
+  - title: 检测SQL注入
+    description: 对包含SQL注入特征的请求进行WAF检测
+    code: |
+      waf_check_request(url="https://example.com/search?q=1' OR '1'='1", method="GET", headers={"User-Agent": "Mozilla/5.0"}, body="", cookies="")
+
+  - title: 检测XSS攻击
+    description: 对包含XSS跨站脚本特征的请求进行检测
+    code: |
+      waf_check_request(url="https://example.com/page", method="POST", headers={}, body="<script>alert('xss')</script>", cookies="")
+
+  - title: 查看规则统计
+    description: 获取当前已加载的WAF规则统计信息
+    code: |
+      waf_rule_stats()
+
+  - title: 热重载规则
+    description: 修改规则文件后热重载，无需重启服务
+    code: |
+      waf_reload_rules()
+
+# 文档链接
+documentation:
+  homepage: https://github.com/12211725-star/hospital-waf-mcp
+  repository: https://github.com/12211725-star/hospital-waf-mcp
+  issues: https://github.com/12211725-star/hospital-waf-mcp/issues

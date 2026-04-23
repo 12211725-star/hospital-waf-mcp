@@ -1,0 +1,47 @@
+{
+  "name": "hospital-waf-mcp",
+  "version": "1.0.0",
+  "displayName": "医院WAF管理系统MCP",
+  "displayNameEn": "Hospital WAF Management System MCP",
+  "description": "为AI助手提供医院Web应用防火墙检测能力的MCP服务器，支持SQL注入、XSS、命令注入、路径遍历检测，内置医院场景专项规则",
+  "descriptionEn": "MCP server providing WAF detection capabilities for hospital systems, supporting SQLi, XSS, command injection, path traversal detection with hospital-specific rules",
+  "serviceType": "stdio",
+  "command": "python",
+  "args": [
+    "-m",
+    "waf_mcp"
+  ],
+  "env": {},
+  "author": {
+    "name": "Hospital Security Team",
+    "email": "security@example.com",
+    "homepage": "https://github.com/12211725-star/hospital-waf-mcp"
+  },
+  "categories": [
+    "security",
+    "healthcare",
+    "waf"
+  ],
+  "tags": [
+    "mcp",
+    "waf",
+    "security",
+    "hospital",
+    "healthcare",
+    "sqli",
+    "xss",
+    "firewall",
+    "医疗",
+    "安全",
+    "防火墙",
+    "等保"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/12211725-star/hospital-waf-mcp",
+  "repository": "https://github.com/12211725-star/hospital-waf-mcp",
+  "icon": "https://img.shields.io/badge/MCP-Hospital%20WAF-red?style=flat-square",
+  "readme": "README.md",
+  "requirements": {
+    "python": ">=3.10"
+  }
+}

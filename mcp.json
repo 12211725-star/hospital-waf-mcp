@@ -1,0 +1,29 @@
+{
+  "name": "hospital-waf-mcp",
+  "version": "1.0.0",
+  "description": "医院WAF管理MCP服务器，为AI助手提供Web应用防火墙检测能力，支持SQL注入、XSS、命令注入、路径遍历检测",
+  "author": "Hospital Security Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/12211725-star/hospital-waf-mcp.git"
+  },
+  "tools": [
+    {
+      "name": "waf_check_request",
+      "description": "对HTTP请求进行WAF规则检测"
+    },
+    {
+      "name": "waf_rule_stats",
+      "description": "获取已加载规则统计信息"
+    },
+    {
+      "name": "waf_reload_rules",
+      "description": "热重载WAF规则文件"
+    },
+    {
+      "name": "waf_run_self_tests",
+      "description": "运行内置攻击样例自检"
+    }
+  ]
+}

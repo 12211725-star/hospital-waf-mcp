@@ -1,0 +1,67 @@
+[project]
+name = "hospital-waf-mcp"
+version = "1.0.0"
+description = "Hospital WAF Management System MCP Server - Web Application Firewall detection for healthcare systems"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Hospital Security Team", email = "security@example.com" }
+]
+dependencies = [
+    "fastmcp>=2.0.0",
+    "starlette>=0.27.0",
+    "httpx>=0.25.0",
+]
+keywords = ["mcp", "waf", "security", "hospital", "healthcare", "sqli", "xss", "医疗", "安全", "防火墙", "等保"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Healthcare Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Internet :: WWW/HTTP",
+]
+
+[project.scripts]
+hospital-waf-mcp = "waf_mcp:main"
+
+[project.urls]
+Homepage = "https://github.com/12211725-star/hospital-waf-mcp"
+Repository = "https://github.com/12211725-star/hospital-waf-mcp"
+Documentation = "https://github.com/12211725-star/hospital-waf-mcp/blob/main/README.md"
+"Bug Tracker" = "https://github.com/12211725-star/hospital-waf-mcp/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["waf_mcp"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "waf_mcp/**/*.py",
+    "waf_engine.py",
+    "version.py",
+    "rules/*.json",
+    "README.md",
+    "LICENSE",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+    "ruff>=0.12",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["scripts"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v --tb=short"
