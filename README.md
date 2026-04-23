@@ -1,252 +1,250 @@
-# Hospital WAF Management System
+# Hospital WAF Management System MCP
 
-**Release:** v1.0.0
+[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![MCP](https://img.shields.io/badge/MCP-FastMCP-orange.svg)](https://github.com/anthropics/mcp)
 
-**Languages:** [English](README.md) | [简体中文](README.zh-CN.md)
+English | [中文](README.zh-CN.md)
 
-A hospital-oriented **Web application firewall (WAF) management console** and **request-inspection engine**, with optional **MCP (Model Context Protocol)** exposure for AI assistants. The detection engine uses Python `re` against a curated JSON rule set (`rules/waf_rules.mcp.json`).
+医院 Web 应用防火墙 MCP 服务器，为 AI 助手提供 WAF 规则检测能力。支持 SQL 注入、XSS、命令注入、路径遍历检测，内置医院场景专项规则。
 
----
+## ✨ 功能特性
 
-## Table of Contents
+- 🔒 **SQL 注入检测** — 识别常见 SQLi 攻击模式
+- 🎯 **XSS 跨站脚本检测** — 检测反射型/存储型 XSS
+- ⚡ **命令注入检测** — 识别系统命令执行攻击
+- 📁 **路径遍历检测** — 检测目录穿越攻击
+- 🏥 **医院专项规则** — 覆盖 HIS/PACS/LIS/RIS 常见漏洞模式
+- 🔄 **热重载规则** — 修改规则后无需重启服务
+- 🧪 **自检测试** — 内置攻击样例验证引擎能力
 
-1. [Features](#1-features)
-2. [Architecture](#2-architecture)
-3. [Requirements](#3-requirements)
-4. [Quick Start](#4-quick-start)
-5. [Configuration](#5-configuration)
-6. [Web UI & Routes](#6-web-ui--routes)
-7. [HTTP API (Summary)](#7-http-api-summary)
-8. [WAF Rules Pipeline](#8-waf-rules-pipeline)
-9. [MCP Server](#9-mcp-server)
-10. [Testing](#10-testing)
-11. [Security & Limitations](#11-security--limitations)
-12. [Project Layout](#12-project-layout)
+## 🚀 快速开始
 
----
-
-## 1. Features
-
-### 1.1 Web console
-
-| Area | Description |
-|------|-------------|
-| **Dashboard** | Attack statistics, rule counts, blacklist size, login counts (aggregated from JSON stores). |
-| **Attack logs** | List and filter logs; initial empty store may be backfilled with **simulated** sample logs for demo. |
-| **Rules (UI)** | Enable/disable **metadata** rules in `data/waf_rules.json` (names, categories, toggles). This list is **not** automatically synced to the regex engine file; use the rules pipeline for engine rules. |
-| **IP blacklist / whitelist** | CRUD on JSON files; **not** wired into `POST /api/check-request` (policy data only unless you extend the app). |
-| **Users** | Create/delete users; roles stored (`admin` / `security` / `auditor` in UI). |
-| **Audit** | Login logs and operation logs (JSON). |
-| **Knowledge base** | Module merge/activate APIs under `/api/knowledge-base/*` (see `knowledge_base_routes.py`). |
-| **Change password** | Complexity rules, first-login / 90-day rotation flags. |
-
-### 1.2 WAF engine
-
-- **Input**: URL, method, headers, body, cookies (as accepted by `WAFEngine.check_request`).
-- **Rules**: `rules/waf_rules.mcp.json` (regex, MCP-compatible subset). Override with `WAF_RULES_FILE`.
-- **APIs**: `POST /api/check-request`, `GET /api/waf-stats`, `POST /api/test-waf` (built-in self-test payloads).
-
-### 1.3 Compliance-oriented login (demo level)
-
-- Account lockout after failed attempts (persisted in `data/users.json`).
-- Password complexity and rotation metadata.
-- Captcha UI exists; **verify server-side integration** before production (see [Security](#11-security--limitations)).
-
----
-
-## 2. Architecture
-
-```text
-┌─────────────────┐     ┌──────────────┐     ┌─────────────────────────┐
-│  Browser (UI)   │────▶│  FastAPI     │────▶│  JSON files (data/)     │
-└─────────────────┘     │  app.py      │     └─────────────────────────┘
-                          │              │
-                          │  WAFEngine   │◀──── rules/waf_rules.mcp.json
-                          └──────┬───────┘      (or WAF_RULES_FILE)
-                                 │
-                          ┌──────▼───────┐
-                          │  MCP server  │  stdio | http | sse
-                          │  waf_mcp/    │
-                          └──────────────┘
-```
-
----
-
-## 3. Requirements
-
-| Component | Version / notes |
-|-----------|------------------|
-| Python | **3.10+** (required for MCP / FastMCP; web app may run on 3.9 in some setups—prefer 3.10+) |
-| Web stack | FastAPI, Uvicorn, Jinja2, Pillow |
-| MCP | `fastmcp` (see `requirements-mcp.txt`) |
-| Docker | Optional (`Dockerfile`, `Dockerfile.mcp`) |
-
-Suggested server: 2 vCPU, 4 GB RAM, 20 GB disk (for logs and rule JSON).
-
----
-
-## 4. Quick Start
-
-### 4.1 Web application
+### 1. 安装
 
 ```bash
-pip install -r requirements.txt
-python app.py
+# 克隆仓库
+git clone https://github.com/12211725-star/hospital-waf-mcp.git
+cd hospital-waf-mcp
+
+# 安装依赖
+pip install -r requirements-mcp.txt
 ```
 
-Default URL: `http://<host>:8083`
+### 2. 集成到 MCP 客户端
 
-Default admin: `admin` / `Admin@123` — **change password on first login**.
-
-### 4.2 Docker (web)
-
-```bash
-chmod +x deploy.sh
-./deploy.sh
-```
-
-Or use `docker-compose.yml` / `Dockerfile` as shipped.
-
----
-
-## 5. Configuration
-
-| Variable | Applies to | Description |
-|----------|------------|-------------|
-| `WAF_RULES_FILE` | `app.py`, MCP | Path to the **regex** rule JSON used by `WAFEngine`. Default: `rules/waf_rules.mcp.json`. |
-| `WAF_MCP_TRANSPORT` | MCP | `stdio` (default), `http` (Streamable HTTP), or `sse`. **One process = one transport.** |
-| `WAF_MCP_HOST` | MCP | Bind address for network transports (default `127.0.0.1`). |
-| `WAF_MCP_PORT` | MCP | Listen port (default `8000`). |
-
----
-
-## 6. Web UI & Routes
-
-| Path | Purpose |
-|------|---------|
-| `/` | Login |
-| `/dashboard` | Dashboard |
-| `/attacks` | Attack log viewer |
-| `/rules` | Rule toggles (metadata file) |
-| `/blacklist`, implied whitelist UI if present | IP lists |
-| `/users` | User admin |
-| `/audit` | Audit viewer |
-| `/change-password` | Password change |
-| `/knowledge-base` | Knowledge-base management page |
-
----
-
-## 7. HTTP API (Summary)
-
-**Authentication:** APIs are **not** uniformly protected by session/JWT in the stock code; treat deployments as **internal/trusted network** or add middleware before production.
-
-| Method | Path | Purpose |
-|--------|------|---------|
-| GET | `/health` | Health JSON |
-| GET | `/api/captcha` | CAPTCHA image (+ `X-Captcha-Id` header) |
-| POST | `/api/login` | Login |
-| POST | `/api/change-password` | Change password |
-| GET/POST/DELETE | `/api/users`, `/api/users/create`, `/api/users/{username}` | Users |
-| GET | `/api/stats` | Dashboard stats |
-| GET | `/api/attacks` | Attack logs |
-| GET/POST | `/api/rules`, `/api/rules/toggle` | UI rule metadata |
-| GET/POST/DELETE | `/api/blacklist`, `/api/whitelist` | Lists |
-| GET | `/api/audit/login-logs`, `/api/audit/audit-logs` | Audit |
-| POST | `/api/check-request` | Run WAF engine on a JSON body |
-| GET | `/api/waf-stats` | Engine stats (`compile_failed`, etc.) |
-| POST | `/api/test-waf` | Engine self-tests |
-| * | `/api/knowledge-base/*` | Knowledge-base module APIs |
-
-Example **`POST /api/check-request`** body:
+在 MCP 客户端配置文件中添加：
 
 ```json
 {
-  "url": "https://example.com/search?q=test",
-  "method": "GET",
-  "headers": { "User-Agent": "Mozilla/5.0" },
-  "body": "",
-  "cookies": ""
+  "mcpServers": {
+    "hospital-waf-mcp": {
+      "command": "python",
+      "args": ["-m", "waf_mcp"],
+      "env": {
+        "WAF_MCP_TRANSPORT": "stdio"
+      }
+    }
+  }
 }
 ```
 
----
-
-## 8. WAF Rules Pipeline
-
-1. **Source**: `knowledge-base/waf_rules.json` (large / mixed semantics).
-2. **Build MCP-compatible subset**:  
-   `python3 scripts/build_mcp_rules.py`  
-   Produces/updates `rules/waf_rules.mcp.json` (Python-`re`-compatible patterns; strips unsupported ModSecurity operators; skips `%{...}` macros).
-3. **Validate**:  
-   `python3 scripts/validate_rules.py`
-4. **Optional hospital add-ons**: edit `rules/hospital_supplement.json` (merged at build time).
-
----
-
-## 9. MCP Server
-
-Expose the same engine to MCP clients (Cursor, ModelScope-style HTTP endpoints, etc.).
+### Streamable HTTP 远程部署
 
 ```bash
-pip install -r requirements-mcp.txt
-python3 -m waf_mcp
+export WAF_MCP_TRANSPORT=http
+export WAF_MCP_HOST=0.0.0.0
+export WAF_MCP_PORT=8000
+python -m waf_mcp
 ```
 
-| Tool | Description |
-|------|-------------|
-| `waf_check_request` | Inspect a request; returns alert list. |
-| `waf_rule_stats` | Rule and compile statistics. |
-| `waf_reload_rules` | Reload rules from disk. |
-| `waf_run_self_tests` | Built-in detection smoke tests. |
+客户端配置：
 
-- **Streamable HTTP** endpoint (when `WAF_MCP_TRANSPORT=http`): typically `http://<host>:<port>/mcp`.
-- **Health** (network modes): `GET /health`.
+```json
+{
+  "mcpServers": {
+    "hospital-waf-mcp": {
+      "type": "http",
+      "url": "https://your-service.example.com/mcp"
+    }
+  }
+}
+```
 
-Sample client snippets: `mcp-examples/`.  
-**Extended MCP notes (Chinese):** [README-MCP.md](README-MCP.md).
-
-Docker image (HTTP only): `Dockerfile.mcp`.
-
----
-
-## 10. Testing
+### Docker 部署
 
 ```bash
-python3 scripts/run_functional_tests.py
+docker build -f Dockerfile.mcp -t hospital-waf-mcp .
+docker run -p 8000:8000 hospital-waf-mcp
 ```
 
-Covers: rule validation, engine self-tests, sample malicious URL, main FastAPI endpoints, optional `fastmcp` import.
+## 📖 使用方法
 
----
+### 检测 SQL 注入
 
-## 11. Security & Limitations
+在 Claude / Cursor / 其他 MCP 客户端中：
 
-- **Not a reverse-proxy WAF**: request inspection is **API/tool invoked**; it does not terminate production HTTP traffic by itself.
-- **UI rule toggles** (`data/waf_rules.json`) and **engine rules** (`rules/waf_rules.mcp.json`) are separate; rebuild/sync as needed.
-- **Blacklist/whitelist** in JSON are not automatically enforced in `check_request` in stock code.
-- **Password storage** uses SHA-256 without per-user salt in the sample—harden for real deployments.
-- **CAPTCHA**: confirm end-to-end validation matches your security model.
-- **Role-based API authorization** is not fully enforced on all routes in the sample—add auth middleware for production.
-
----
-
-## 12. Project Layout
-
-```text
-app.py                 # FastAPI web app
-waf_engine.py          # Regex WAF engine
-waf_mcp/               # MCP package (config, server, __main__)
-rules/                 # waf_rules.mcp.json, hospital_supplement.json
-data/                  # users, logs, UI rule metadata, lists
-knowledge-base/        # Knowledge-base sources
-web/templates/         # Jinja2 HTML
-scripts/               # build_mcp_rules, validate_rules, run_functional_tests
-mcp-examples/          # Client configuration examples
-Dockerfile / Dockerfile.mcp
+```
+请帮我检测这个请求是否有安全问题：
+URL: https://example.com/search?q=1' OR '1'='1
 ```
 
----
+AI 会调用 `waf_check_request` 工具，返回：
 
-## Version
+```json
+[
+  {
+    "rule_id": "sqli-001",
+    "category": "SQL Injection",
+    "severity": "high",
+    "matched": "1' OR '1'='1",
+    "description": "检测到 SQL 注入特征"
+  }
+]
+```
 
-**v1.0.0** — canonical value in [`version.py`](version.py) (`__version__`).
+### 检测 XSS 攻击
+
+```
+检测这个 POST 请求的 body：
+<script>alert('xss')</script>
+```
+
+### 查看规则统计
+
+```
+当前 WAF 引擎加载了多少规则？
+```
+
+## 🛠️ 工具列表
+
+| 工具 | 描述 | 参数 |
+|------|------|------|
+| `waf_check_request` | WAF 请求检测 | `url`: 请求URL, `method`: HTTP方法, `headers`: 请求头, `body`: 请求体, `cookies`: Cookie |
+| `waf_rule_stats` | 规则统计 | 无参数 |
+| `waf_reload_rules` | 热重载规则 | 无参数 |
+| `waf_run_self_tests` | 自检测试 | 无参数 |
+
+## 🎯 提示词指南
+
+### 安全评估场景
+
+```
+我需要对一个请求进行安全检测，
+URL 是 https://hospital.example.com/api/patient?id=1 UNION SELECT，
+请帮我分析是否存在攻击特征。
+```
+
+### 规则运维场景
+
+```
+我刚刚更新了 WAF 规则文件，
+请帮我重新加载规则并确认加载成功。
+```
+
+### 引擎验证场景
+
+```
+请运行 WAF 引擎自检测试，
+确认 SQL 注入和 XSS 检测功能正常。
+```
+
+### 日志分析场景
+
+```
+帮我检测这个可疑请求的完整参数：
+URL: https://api.hospital.com/query
+Method: POST
+Body: {"filter": "'; DROP TABLE users; --"}
+Headers: {"Content-Type": "application/json"}
+```
+
+## 📖 环境变量
+
+| 变量 | 说明 | 默认值 |
+|------|------|--------|
+| `WAF_MCP_TRANSPORT` | 传输协议 (stdio/http/sse) | `stdio` |
+| `WAF_MCP_HOST` | HTTP 监听地址 | `127.0.0.1` |
+| `WAF_MCP_PORT` | HTTP 监听端口 | `8000` |
+| `WAF_RULES_FILE` | 规则文件路径 | `rules/waf_rules.mcp.json` |
+
+## 📋 检测能力
+
+### SQL 注入检测
+
+- 基于 UNION 的注入
+- 布尔盲注
+- 时间盲注
+- 报错注入
+- 堆叠查询
+
+### XSS 检测
+
+- `<script>` 标签
+- 事件处理器 (onclick, onerror 等)
+- JavaScript URI
+- SVG/MathML XSS
+
+### 命令注入检测
+
+- Unix 命令注入 (; | & $ `)
+- Windows 命令注入 (& | ^)
+- 常见危险命令 (cat, ls, wget, curl 等)
+
+### 路径遍历检测
+
+- `../` 目录穿越
+- URL 编码绕过
+- 双重编码绕过
+
+### 医院场景专项
+
+- HIS 系统常见漏洞模式
+- PACS 影像系统风险
+- LIS 检验系统风险
+- 电子病历系统风险
+
+## 🔧 开发
+
+```bash
+git clone https://github.com/12211725-star/hospital-waf-mcp.git
+cd hospital-waf-mcp
+pip install -e .
+
+# 运行测试
+python scripts/run_functional_tests.py
+
+# 本地运行
+python -m waf_mcp
+```
+
+## 📁 项目结构
+
+```
+hospital-waf-mcp/
+├── waf_mcp/                  # MCP 服务代码
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── config.py
+│   └── server.py
+├── waf_engine.py             # WAF 检测引擎
+├── rules/                    # 规则文件
+│   ├── waf_rules.mcp.json
+│   └── hospital_supplement.json
+├── scripts/                  # 脚本工具
+├── modelscope.yaml           # 魔搭配置
+├── mcp.json                  # MCP 元数据
+├── mcp_config.json           # MCP 客户端配置
+├── pyproject.toml            # Python 项目配置
+└── README.md
+```
+
+## 📄 许可证
+
+MIT License
+
+## 🔗 链接
+
+- **GitHub**: https://github.com/12211725-star/hospital-waf-mcp
+- **Issues**: https://github.com/12211725-star/hospital-waf-mcp/issues
+- **魔搭 MCP 广场**: https://modelscope.cn/mcp/servers
